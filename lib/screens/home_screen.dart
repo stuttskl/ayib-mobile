@@ -9,7 +9,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('A Year In Books')),
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
