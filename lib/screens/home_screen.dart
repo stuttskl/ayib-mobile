@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+import '../widgets/add_form.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -25,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 text: 'what are you reading today?',
                 style: Theme.of(context).textTheme.headline6,
               )
-            )
+            ),
+            AddForm(),
           ]
         ),
       ),
