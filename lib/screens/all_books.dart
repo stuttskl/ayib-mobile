@@ -14,42 +14,29 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
     return StreamBuilder(
-        stream: books,
-        builder: (context, record) {
-          if (record.hasData &&
-              record.data.docs != null &&
-              record.data.docs.length > 0) {
-            return ListView.builder(
-                itemCount: record.data.docs.length,
-                itemBuilder: (context, index) {
-                  var book = record.data.docs[index];
-                  return ListTile(
-                    leading: Text(book['title']),
-                    trailing: Text(book['author'].toString(),
-                        style: Theme.of(context).textTheme.headline5),
-                  );
-                });
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        });
-    // return GridView.count(
-    //   primary: false,
-    //   padding: const EdgeInsets.all(16),
-    //   crossAxisSpacing: 10,
-    //   mainAxisSpacing: 10,
-    //   crossAxisCount: 2,
-    //   children: <Widget>[
-    //     Book(),
-    //     Book(),
-    //     Book(),
-    //     Book(),
-    //     Book(),
-    //     Book(),
-    //     Book(),
-    //     Book(),
-    //   ],
-    // );
+      stream: books,
+      builder: (context, record) {
+        if (record.hasData &&
+          record.data.docs != null &&
+          record.data.docs.length > 0) {
+            return GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+              itemCount: record.data.docs.length,
+              itemBuilder: (context, index) {
+              var book = record.data.docs[index];
+              return Book(
+                title: book['title'],
+                author: book['author'],
+                rating: 4,
+              );
+            }
+            );
+      } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      }
+    );
   }
 }
