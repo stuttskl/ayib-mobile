@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../widgets/book.dart';
 
 class AllBooksScreen extends StatefulWidget {
   @override
@@ -6,10 +9,34 @@ class AllBooksScreen extends StatefulWidget {
 }
 
 class _AllBooksScreenState extends State<AllBooksScreen> {
+  Stream<QuerySnapshot> books =
+      FirebaseFirestore.instance.collection('books').snapshots();
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    final orientation = MediaQuery.of(context).orientation;
+    return StreamBuilder(
+      stream: books,
+      builder: (context, record) {
+        if (record.hasData &&
+          record.data.docs != null &&
+          record.data.docs.length > 0) {
+            return GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+              itemCount: record.data.docs.length,
+              itemBuilder: (context, index) {
+              var book = record.data.docs[index];
+              return Book(
+                title: book['title'],
+                author: book['author'],
+                rating: 4,
+              );
+            }
+            );
+      } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      }
     );
   }
 }
