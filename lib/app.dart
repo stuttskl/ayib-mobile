@@ -11,6 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'A Year In Books',
       theme: ThemeData(
+        primaryColor: Colors.red[700],
         textTheme: TextTheme(
           headline1: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
           headline2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
@@ -18,7 +19,7 @@ class App extends StatelessWidget {
           bodyText1: TextStyle(fontSize: 14.0)
         )
       ),
-      home: MainTabController()
+      home: MainTabController(),
     );
   }
 }

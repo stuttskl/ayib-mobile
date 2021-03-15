@@ -22,13 +22,18 @@ class _AllBooksScreenState extends State<AllBooksScreen> {
           record.data.docs != null &&
           record.data.docs.length > 0) {
             return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+              padding: EdgeInsets.all(10),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: 0,
+                mainAxisSpacing: 10,
+                crossAxisCount: (orientation == Orientation.portrait) ? 2 : 4),
               itemCount: record.data.docs.length,
               itemBuilder: (context, index) {
               var book = record.data.docs[index];
               return Book(
-                title: book['title'],
-                author: book['author'],
+                // title: book['title'],
+                // author: book['author'],
+                imgUrl: book['imgUrl'],
                 rating: 4,
               );
             }
