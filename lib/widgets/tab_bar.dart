@@ -1,6 +1,8 @@
+import 'package:ayib_mobile/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 import '../screens/all_books.dart';
 import '../screens/home_screen.dart';
+import '../screens/search_screen.dart';
 
 class MainTabController extends StatelessWidget {
   static const tabs = [
@@ -24,7 +26,7 @@ class MainTabController extends StatelessWidget {
           children: [
             HomeScreen(),
             AllBooksScreen(),
-            Text('Search'),
+            SearchScreen()
           ],
         )
       )

@@ -66,7 +66,7 @@ class _AddFormState extends State<AddForm> {
                 if (_formKey.currentState.validate()) {
                   _formKey.currentState.save(),
 
-                print(newBookValues.title),
+                // print(newBookValues.title),
                 FirebaseFirestore.instance.collection('books').add({
                   'title': newBookValues.title,
                   'author': newBookValues.author,
@@ -83,3 +83,8 @@ class _AddFormState extends State<AddForm> {
     );
   }
 }
+
+// TODO:
+// [] pop to all books screen after adding new book
+// [] temp delete button
+// [] clear form fields once data has been submitted
