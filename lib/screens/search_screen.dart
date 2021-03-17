@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
+import '../widgets/add_form.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -8,8 +9,8 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-    final _formKey = GlobalKey<FormState>();
-    var queryParams;
+  final _formKey = GlobalKey<FormState>();
+  var queryParams;
 
   void sendRequest() async {
     var query = "twilight";
@@ -31,32 +32,37 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-             Form(
-              key: _formKey, 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Search Terms...',
-                      hintStyle: Theme.of(context).textTheme.bodyText1,
-                    ),
-                    keyboardType: TextInputType.text,
-                    validator: (value) {},
-                    onSaved: (value) {
-                      queryParams = value;
-                    }
-                  ),
-                ]   
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text('Search For A Book', style: Theme.of(context).textTheme.headline4),
+              Form(
+                key: _formKey,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'Search Terms...',
+                            hintStyle: Theme.of(context).textTheme.bodyText1,
+                          ),
+                          keyboardType: TextInputType.text,
+                          validator: (value) {},
+                          onSaved: (value) {
+                            queryParams = value;
+                          }),
+                    ]),
               ),
-            ),
-            ElevatedButton(onPressed: sendRequest, child: Text('Search'))
-          ]
-        ),
+              ElevatedButton(
+                onPressed: sendRequest, 
+                child: Text('Search'),
+                style: ElevatedButton.styleFrom(
+                primary: Colors.red[700], // backgroun  d
+                onPrimary: Colors.white, // foreground
+              )),
+              Text('Add A Book', style: Theme.of(context).textTheme.headline4),
+              AddForm(),
+            ]),
       ),
     );
   }

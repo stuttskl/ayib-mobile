@@ -12,6 +12,8 @@ class App extends StatelessWidget {
       title: 'A Year In Books',
       theme: ThemeData(
         primaryColor: Colors.red[700],
+        buttonColor: Colors.red[700],
+        buttonTheme: ButtonThemeData(buttonColor: Colors.red[700]),
         textTheme: TextTheme(
           headline1: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
           headline2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),

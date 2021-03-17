@@ -75,7 +75,11 @@ class _AddFormState extends State<AddForm> {
                 })
                 }
               },
-              child: Text('Add A Book')
+              child: Text('Add A Book'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red[700], // background
+                onPrimary: Colors.white, // foreground
+            )
             ),
           ],
         )

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+import '../widgets/current_book.dart';
 import '../widgets/add_form.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,17 +27,17 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             RichText(
               text: TextSpan(
-                text: 'Good morning, Katie',
+                text: 'Currently Reading',
                 style: Theme.of(context).textTheme.headline4,
               )
             ),
-            RichText(
-              text: TextSpan(
-                text: 'what are you reading today?',
-                style: Theme.of(context).textTheme.headline6,
-              )
+            // AddForm(),
+            CurrentBook(
+              author: 'Cixin Liu',
+              title: 'The Three Body Problem',
+              imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/919XM42JQlL.jpg'
             ),
-            AddForm(),
+
           ]
         ),
       ),
