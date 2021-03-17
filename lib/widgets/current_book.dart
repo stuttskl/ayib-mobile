@@ -27,38 +27,37 @@ class CurrentBook extends StatelessWidget {
     var progress = 0.75;
     var stringProgress = progress * 100;
     return Container(
-      // child: Image.network('$imgUrl'),
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Image.network('$imgUrl', height: 300),
-            // ListTile(
-            //   title: Text('$title'),
-            //   subtitle: Text('$author'),
-            // ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                const SizedBox(width: 8),
-              ],
-            ),
-            SizedBox(height: 30),
-            Text('Your Progress: ' + stringProgress.toStringAsFixed(0) + '%'),
-            CupertinoProgressBar(
-              semanticsLabel: 'Book Progress',
-              value: progress,
-            ),
-            SizedBox(height: 30),
-            ElevatedButton(
-                onPressed: () => {},
-                child: Text('Update Progress'),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.red[700], // background
-                  onPrimary: Colors.white, // foreground
-                ))
-          ],
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SizedBox(height: 100),
+          Text('Currently Reading', style: Theme.of(context).textTheme.headline1),
+          Image.network('$imgUrl', height: 300),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(width: 8),
+            ],
+          ),
+          SizedBox(height: 30),
+          Text('Your Progress: ' + stringProgress.toStringAsFixed(0) + '%'),
+          CupertinoProgressBar(
+            semanticsLabel: 'Book Progress',
+            value: progress,
+            valueColor: Colors.red[700],
+          ),
+          SizedBox(height: 30),
+          ElevatedButton(
+            onPressed: () => {
+              print('update reading progress')
+            },
+            child: Text('Update Progress'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.red[700], // background
+              onPrimary: Colors.white, // foreground
+            )
+          )
+        ],
       ),
     );
   }

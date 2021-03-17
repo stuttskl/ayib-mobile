@@ -9,6 +9,7 @@ class AllBooksScreen extends StatefulWidget {
 }
 
 class _AllBooksScreenState extends State<AllBooksScreen> {
+  // grab all books from collection
   Stream<QuerySnapshot> books =
       FirebaseFirestore.instance.collection('books').snapshots();
 
