@@ -28,7 +28,7 @@ class CurrentBook extends StatelessWidget {
     var stringProgress = progress * 100;
     return Container(
       // child: Image.network('$imgUrl'),
-      child: Card(
+      // child: Card(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -48,18 +48,20 @@ class CurrentBook extends StatelessWidget {
             CupertinoProgressBar(
               semanticsLabel: 'Book Progress',
               value: progress,
+              valueColor: Colors.red[700],
             ),
             SizedBox(height: 30),
             ElevatedButton(
-                onPressed: () => {},
-                child: Text('Update Progress'),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.red[700], // background
-                  onPrimary: Colors.white, // foreground
-                ))
+              onPressed: () => {},
+              child: Text('Update Progress'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red[700], // background
+                onPrimary: Colors.white, // foreground
+              )
+            )
           ],
         ),
-      ),
+      // ),
     );
   }
 }
