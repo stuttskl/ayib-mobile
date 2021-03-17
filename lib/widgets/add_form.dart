@@ -61,6 +61,7 @@ class _AddFormState extends State<AddForm> {
                 newBookValues.startDate = value.toIso8601String();
               }
             ),
+            SizedBox(height: 15),
             ElevatedButton(
               onPressed: () => {
                 if (_formKey.currentState.validate()) {
@@ -79,7 +80,7 @@ class _AddFormState extends State<AddForm> {
               style: ElevatedButton.styleFrom(
                 primary: Colors.red[700], // background
                 onPrimary: Colors.white, // foreground
-            )
+              )
             ),
           ],
         )

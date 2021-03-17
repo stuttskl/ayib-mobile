@@ -53,6 +53,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           }),
                     ]),
               ),
+              SizedBox(height: 15),
               ElevatedButton(
                 onPressed: sendRequest, 
                 child: Text('Search'),
@@ -60,6 +61,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 primary: Colors.red[700], // backgroun  d
                 onPrimary: Colors.white, // foreground
               )),
+              SizedBox(height: 50),
               Text('Add A Book', style: Theme.of(context).textTheme.headline4),
               AddForm(),
             ]),
